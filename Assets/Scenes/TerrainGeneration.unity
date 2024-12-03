@@ -269,26 +269,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484711142f677824386d52998436c8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSize: 30
-  zSize: 30
-  strength: 0.3
+  decals:
+  - {fileID: 1521319932559390546, guid: 915ac35a5aca31d4c9575633be0f6b82, type: 3}
+  - {fileID: 2881479668610909691, guid: c67ed6360e72a9848a4bc876f41e5c51, type: 3}
+  - {fileID: 7833923683500900003, guid: 11ef6c955fb624a4aaf3b18597db22df, type: 3}
+  - {fileID: 1844511393940878295, guid: a5344b98eb8749b48bd7eff8a8c3adae, type: 3}
+  - {fileID: 1654020625963138219, guid: 32a25aaeb263423438ea72cc904f7910, type: 3}
+  xSize: 40
+  zSize: 40
+  strength: 0.075
   grad:
     serializedVersion: 2
     key0: {r: 0.86732286, g: 0.93317574, b: 0.5667314, a: 1}
-    key1: {r: 0.936637, g: 1, b: 0.5330188, a: 1}
-    key2: {r: 0.9137255, g: 0.8915721, b: 0.15294115, a: 0}
+    key1: {r: 0.9137255, g: 0.8915721, b: 0.15294115, a: 1}
+    key2: {r: 0.14265394, g: 0.43816698, b: 0.10916236, a: 0}
     key3: {r: 0.04338732, g: 0.3679245, b: 0.056170247, a: 0}
     key4: {r: 0.09114741, g: 0.39846262, b: 0.10325199, a: 0}
     key5: {r: 0.3098523, g: 0.31132078, b: 0.3098523, a: 0}
-    key6: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 0}
+    key6: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0}
     key7: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 0}
     ctime0: 964
-    ctime1: 2891
-    ctime2: 7517
+    ctime1: 1735
+    ctime2: 4433
     ctime3: 13300
-    ctime4: 23516
-    ctime5: 32382
-    ctime6: 65535
+    ctime4: 21588
+    ctime5: 26214
+    ctime6: 39899
     ctime7: 65535
     atime0: 0
     atime1: 65535
@@ -299,7 +305,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 7
+    m_NumColorKeys: 8
     m_NumAlphaKeys: 2
 --- !u!33 &784984254
 MeshFilter:

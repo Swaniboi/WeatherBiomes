@@ -9,6 +9,7 @@ public class TerrainGeneration : MonoBehaviour
 	Vector3[] vertices;
 	int[] triangles;
 	Color[] colors;
+	public GameObject[] decals;
 
 	public int xSize = 20;
 	public int zSize = 20;
@@ -19,14 +20,17 @@ public class TerrainGeneration : MonoBehaviour
 
 	float minHeight;
 	float maxHeight;
+	Vector3 terrainScale;
 
 	void Start()
 	{
 		mesh = new Mesh();
 		GetComponent<MeshFilter>().mesh = mesh;
+		terrainScale = this.gameObject.transform.localScale;
 
 		CreateShape();
 		UpdateMesh();
+		addDecals();
 	}
 
 	void CreateShape()
@@ -100,7 +104,29 @@ public class TerrainGeneration : MonoBehaviour
 		mesh.colors = colors; 
 
 		mesh.RecalculateNormals();
+		mesh.RecalculateTangents();
 	}
+
+	void addDecals()
+    {
+		float lastHeight = transform.TransformPoint(mesh.vertices[0]).y;
+		for (int i = 0; i < vertices.Length; ++i)
+        {
+			Vector3 worldPoint = transform.TransformPoint(mesh.vertices[i]);
+			float height = worldPoint.y;
+			if(Mathf.Abs(lastHeight*terrainScale.y - height*terrainScale.y) < 3)
+            {
+				Debug.Log(Mathf.Abs(lastHeight - height));
+				if (Random.Range(0, 5) == 3)
+				{
+					GameObject objectToSpawn = decals[Random.Range(0, decals.Length)];
+					float spawnheight = height * 2;
+					Instantiate(objectToSpawn, new Vector3(mesh.vertices[i].x * terrainScale.x, height, mesh.vertices[i].z * terrainScale.z), Quaternion.identity);
+				}
+			}
+			lastHeight = height;
+        }
+    }
 
 	void Update()
     {
