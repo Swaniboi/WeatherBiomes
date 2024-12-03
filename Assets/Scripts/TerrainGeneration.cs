@@ -116,7 +116,7 @@ public class TerrainGeneration : MonoBehaviour
 			float height = worldPoint.y;
 			if(Mathf.Abs(lastHeight*terrainScale.y - height*terrainScale.y) < 3)
             {
-				Debug.Log(Mathf.Abs(lastHeight - height));
+				//Debug.Log(Mathf.Abs(lastHeight - height));
 				if (Random.Range(0, 5) == 3)
 				{
 					GameObject objectToSpawn = decals[Random.Range(0, decals.Length)];
