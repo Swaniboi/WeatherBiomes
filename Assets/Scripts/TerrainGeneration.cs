@@ -5,6 +5,7 @@ using UnityEngine;
 public class TerrainGeneration : MonoBehaviour
 {
 	Mesh mesh;
+	MeshCollider col;
 
 	Vector3[] vertices;
 	int[] triangles;
@@ -25,6 +26,7 @@ public class TerrainGeneration : MonoBehaviour
 	void Start()
 	{
 		mesh = new Mesh();
+		col = GetComponent<MeshCollider>();
 		GetComponent<MeshFilter>().mesh = mesh;
 		terrainScale = this.gameObject.transform.localScale;
 
@@ -105,6 +107,8 @@ public class TerrainGeneration : MonoBehaviour
 
 		mesh.RecalculateNormals();
 		mesh.RecalculateTangents();
+
+		col.sharedMesh = mesh;
 	}
 
 	void addDecals()
